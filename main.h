@@ -77,9 +77,8 @@ public:
 
     bool is_empty() {
         std::unique_lock<std::mutex> lock(dir_vector_mt);
-        if(directories_to_work_on.empty())
-            return true;
-        else return false;
+
+        return directories_to_work_on.empty() ? true : false;
     }
 
     std::filesystem::path get_directory() {

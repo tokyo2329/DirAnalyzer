@@ -7,13 +7,9 @@
 class MultiThreadDirSearcher {
 
 public:
-    MultiThreadDirSearcher(int max_threads, std::filesystem::path starting_path) {
-
-        have_to_work = true;
-        this->number_of_threads = max_threads;
-        this->starting_path = starting_path;
-
-    }
+    MultiThreadDirSearcher(int max_threads, std::filesystem::path starting_path)
+        : have_to_work{true}, number_of_threads{max_threads}, starting_path{starting_path} {}
+        
     ~MultiThreadDirSearcher() {
         
         for(auto& th : threads) {
@@ -46,7 +42,7 @@ public:
         }
     }
 
-    void print_values() {
+    void print_values() const {
         auto time_it_took = std::chrono::duration_cast<std::chrono::milliseconds>(stop_timer - start_timer);
         std::cout<<"Number of files: "<<number_of_files<<std::endl;
         std::cout<<"Number of directories: "<<number_of_directories<<std::endl;

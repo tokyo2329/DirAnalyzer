@@ -42,7 +42,7 @@ public:
         }
     }
 
-    void print_values() const {
+    auto print_values() const -> void {
         auto time_it_took = std::chrono::duration_cast<std::chrono::milliseconds>(stop_timer - start_timer);
         std::cout<<"Number of files: "<<number_of_files<<std::endl;
         std::cout<<"Number of directories: "<<number_of_directories<<std::endl;
@@ -50,22 +50,22 @@ public:
         std::cout<<"It took: "<<time_it_took.count()<<" miliseconds"<<std::endl;
     }
 
-    void add_to_directories(std::filesystem::path path) {
+    auto add_to_directories(std::filesystem::path path) -> void {
         std::unique_lock<std::mutex> lock(dir_vector_mt);
         directories_to_work_on.push_back(path);
     }
 
-    void increment_file_number(int value) {
+    auto increment_file_number(int value) -> void {
         std::unique_lock<std::mutex> lock(file_number_mt);
         number_of_files += value;
     }
 
-    int get_file_number() {
+    auto get_file_number() -> int{
         std::unique_lock<std::mutex> lock(file_number_mt);
         return number_of_files;
     }
 
-    void increment_directories_number(int value) {
+    auto increment_directories_number(int value) -> void {
         std::unique_lock<std::mutex> lock(directories_number_mt);
         number_of_directories += value;
     }

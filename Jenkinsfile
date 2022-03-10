@@ -7,15 +7,14 @@ pipeline {
         stage("build") {
             steps {
                 echo "building the app..."
-                sh 'cmake .'
-                sh 'make'
+                sh 'docker build . -t analyzer:latest'
             }
         }
 
         stage("deploy") {
             steps {
                 echo "deploying the app..."
-                sh './DirAnalyzer'
+                sh 'docker run analyzer:latest'
                 echo ":)"
             }
         }

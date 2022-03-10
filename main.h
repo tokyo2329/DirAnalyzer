@@ -95,11 +95,11 @@ public:
     std::vector<std::thread> threads;
 
     // starting values
-    int number_of_threads = 0;
+    int number_of_threads{0};
     std::filesystem::path starting_path;
 
 private:
-    int number_of_files = 0, number_of_directories = 0;
+    int number_of_files{0}, number_of_directories{0};
 
     // time
     std::chrono::time_point<std::chrono::system_clock> start_timer;

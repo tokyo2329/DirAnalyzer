@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/DirAnalyzerTests.dir/tests.cpp.o -o DirAnalyzerTests  ../lib/libgtest_maind.a ../libDirAnalyzer.a ../lib/libgtestd.a -lpthread -lpthread 

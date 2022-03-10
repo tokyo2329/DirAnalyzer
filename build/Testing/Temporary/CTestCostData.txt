@@ -1,3 +1,0 @@
-DirAnalyzer 0 0
----
-DirAnalyzer
